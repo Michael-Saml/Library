@@ -554,24 +554,6 @@ function Library:CreateLabel(Properties, IsHud)
     return Library:Create(_Instance, Properties)
 end
 
-function Library:AddDraggableLabel(Text)
-    local Label = Library:CreateLabel({
-        BackgroundTransparency = 1;
-        Text = Text or "";
-        TextSize = 14;
-        TextXAlignment = Enum.TextXAlignment.Left;
-        Visible = false;
-        ZIndex = 200;
-        Parent = ScreenGui;
-    })
-
-    Label.Size = UDim2.fromOffset(Library:GetTextBounds(Label.Text, Library.Font, 14 * DPIScale), 18 * DPIScale)
-    Label.Position = UDim2.new(0.5, 0, 0.5, 0)
-    Library:MakeDraggable(Label)
-
-    return Label
-end
-
 function Library:MakeDraggable(Instance, Cutoff, IsMainWindow)
     Instance.Active = true
 
@@ -8118,7 +8100,7 @@ end
         -- Lock
         local LockUIOuter = Library:Create("Frame", {
             BorderColor3 = Color3.new(0, 0, 0);
-            Position = UDim2.new(0.008, 0, 0.055, 0);
+            Position = UDim2.new(0.008, 0, 0.052, 0);
             Size = UDim2.new(0, 77, 0, 30);
             ZIndex = 200;
             Visible = true;
